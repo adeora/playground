@@ -7,11 +7,15 @@ node_js:
 addons:
   chrome: stable
 
+before_install:
+  - export CHROME_BIN=chromium_browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 install:
-  - npm install -g @angular/cli rollup
+  - npm install -g @angular/cli rollup karma
   - npm install
-  - sh -e /etc/init.d/xvfb start # start xvfb for local chrome testing
 
 script:
   - ./build.sh
-  - ng test
+  - karma start karma.conf.js --single-run
