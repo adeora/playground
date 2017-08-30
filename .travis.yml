@@ -13,3 +13,4 @@ install:
 
 script:
   - ./build.sh
+  - ng test
