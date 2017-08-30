@@ -8,9 +8,8 @@ addons:
   chrome: stable
 
 install:
-  - npm install -g @angular/cli
+  - npm install -g @angular/cli rollup
   - npm install
 
 script:
   - ./build.sh
-  - ng test
